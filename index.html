@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poraque - Animais aquaticos</title>
+    <style>
+        jl {
+            margin: auto;
+            text-decoration: none;
+            color: black;
+            background-color: #47979c;
+            box-shadow: -0.6px 0.6px 2px black;
+            padding: 7px;
+            border-radius: 20px;
+        }
+
+        main {
+            background-color: rgb(228, 240, 250);
+            width: 100%;
+            margin: auto;
+            max-width: 700px;
+            box-shadow: -2px 2px 7px black;
+            padding: 20px;
+            transition: background-color 0.3s; /* Adiciona uma transição suave para a mudança de cor de fundo */
+        }
+        body {
+            margin-top: 120px
+
+        }
+        body::before
+        {
+            content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url(1694642933650232f5179c4_1694642933_3x2_rt.jpg);
+        filter: blur(5px);
+        z-index: -1;
+        pointer-events: none;
+        }
+        h2 {
+            color: #166a75;
+            margin-left: 30px;
+            margin-right: 30px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #297563;
+            margin-left: 15px;
+            margin-right: 40px;
+        }
+
+        button {
+            cursor: pointer;
+            margin: auto;
+            max-width: 700;
+            background-color: #3498db;;
+            border: none;
+            color: aliceblue;
+            padding: 10px 20px;
+            font-size: 23;
+            font-family: Arial, Helvetica, sans-serif;
+            border-radius: 20px;
+            transition: transform 0.2s;
+            box-shadow: -0.6px 0.6px 2px black;
+        }
+
+        button:hover {
+            transform: scale(1.10);
+        }
+
+        .tst {
+            margin-top: 3px;
+            text-align: center;
+            margin-right: 40px;
+            margin-left: 40px;
+            max-width: 100%;
+            margin: auto;
+            width: auto;
+            transition: transform 0.2s;
+            display: flex;
+        }
+
+        iframe {
+            max-width: 100%;
+            width: 100%;
+            margin: auto;
+            display: block;
+            margin: auto;
+            background-color: #3498db;;
+            padding: 6px;
+        }
+
+        button:active {
+            transform: scale(0.95);
+        }
+        .button-container {
+            text-align: center;
+            font-size: 13px;
+            margin-top: -10px;
+        }
+
+        img:hover {
+            transform: scale(1.055);
+        }
+
+        img:active {
+            transform: scale(0.95);
+        }
+
+        .link-sem {
+            text-decoration: none;
+            color: rgb(255, 255, 255);
+        }
+
+        .tst:hover {
+            transform: scale(1.10);
+        }
+
+        .tst:active {
+            transform: scale(0.95);
+        }
+
+        .p2 {
+            margin-left: auto;
+            margin-right: auto;
+            margin-right: 30px;
+            margin-left: 30px;
+        }
+
+        /* Dark Mode Button Styling */
+        #darkModeButton {
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            background-color: rgb(0, 0, 0);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .dark-mode main {
+            background-color: rgba(17, 17, 17, 0.897);
+            color: white;
+        }
+        .dark-mode h2 {
+            color: #166a75;
+        }
+        .dark-mode h1 {
+            color: #297563;
+        }
+
+
+        header {
+    top: 0;
+    left: 0;
+    width: 100%;
+    margin: auto;
+    box-sizing: border-box;
+    max-width: 100%;
+    position: absolute;
+    background-color: #257463;
+    color: white;
+    height: 11%;
+    padding: 10px;
+}
+
+
+        .rsociais {
+            text-align: center;
+            color: aliceblue;
+        }
+        #rso 
+        {
+            color: white;
+            text-align: center;
+        }
+        #rso2 {
+            display: none;
+            align-items: center;
+            margin-top: -300px;
+            margin-left: 500;
+            padding: 5px 10px;
+        }
+        .brso2 {
+            text-align: center;
+            margin-top: -20px;
+            margin-left: 360px;
+            padding: 0px 0px;
+        }
+        .dark-mode header {
+            background-color: #0f2b25;;
+        }
+        #options-menu {
+            display: none;
+            position: absolute;
+            background-color: #3498db;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 10px;
+            border-radius: 10px;
+            min-width: 120px;
+            right: 20px;
+            top: 60px;
+            animation: fade 0.3s;
+            z-index: 999;
+        }
+        #menu.show-menu #options-menu {
+            display: block;
+        }
+        #menu {
+            position: absolute;
+            top: 32px;
+            right: 20px;
+            z-index: 999;
+            cursor: pointer;
+        }
+        #menu-icon {
+            font-size: 24px;
+            display: block;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        #options-menu-top {
+            display: none;
+            position: absolute;
+            background-color: #3498db;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 10px;
+            border-radius: 10px;
+            min-width: 120px;
+            right: 20px;
+            top: 60px;
+            animation: fade 0.3s;
+            z-index: 999; }
+        #menu.show-menu #options-menu-top {
+            display: block; 
+        }
+        .hamburger-menu {
+            display: block;
+            cursor: pointer;
+        }
+
+        .hamburger-menu span {
+            display: block;
+            width: 30px;
+            height: 3px;
+            background-color: #333;
+            margin: 6px 0;
+            transition: 0.4s;
+        }
+
+        .hamburger-menu.open span:nth-child(1) {
+            transform: rotate(-45deg) translate(-5px, 6px);
+        }
+
+        .hamburger-menu.open span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger-menu.open span:nth-child(3) {
+            transform: rotate(45deg) translate(-5px, -6px);
+        }
+
+        @keyframes fade {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .hamburger-menu:active > #menu2
+        {
+            display: block;
+        }
+        #menu2 {
+    text-align: center;
+    display: none;
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    z-index: 998;
+    background-color: #3498db;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    border-radius: 10px;
+    min-width: 120px;
+        }
+        #menu3 {
+    text-align: center;
+    display: none;
+    position: absolute;
+    top: 110px;
+    right: 20px;
+    z-index: 998;
+    background-color: #3498db;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    border-radius: 10px;
+    min-width: 120px;}
+            .prq {
+                font-size: 12px;
+                margin-top: -6px;
+                margin-left: 70px;
+                margin-right: 40px;
+            }
+            img {
+                margin-top: -30px;
+                background-color: #257463;
+                border-radius: 50%;
+                padding: 4px;
+                margin-top: -6px;
+                margin-right: 40px;
+                margin-left: 40px;
+                max-width: 100%;
+                margin: auto;
+                width: auto;
+                transition: transform 0.2s;
+            }
+
+            .container {
+                width: 100%;
+                text-align: center;
+                margin: auto;
+                width: auto;
+                margin-right: 40px;
+                margin-left: 40px;
+                max-width: 100%;
+            }
+            .inner {
+                position: relative;
+                margin: auto;
+                width: auto;
+                max-width: 100%;
+            }
+            .image {
+                background-color: #166a75;
+                padding: 5px 5px 5px 5px;
+                border-radius: 0%;
+                margin: auto;
+                width: auto;
+                max-width: 100%;
+            }
+            
+            .img6 {
+                text-align: center;
+            }
+            .vestibulinho {
+                margin-top: -10px;
+                text-align: center;
+                font-size: 12px;
+            }
+            .vestibulinho:hover 
+            {
+                color: rgb(236, 247, 246);
+            }
+    </style>
+</head>
+<header>
+    <div class="rsociais">
+        <h1 id="rso">Etec de Caraguatatuba</h1>
+
+    </div>
+    <div class="brso2">
+        <button id="rso2"><b>Instagram</b></button>
+    </div>  
+    <TST>
+        <div id="menu" class="hamburger-menu" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          
+          <div id="menu2">Testando</div>
+          <div id="menu3">Testando</div>
+</header>
+<body>
+    <main class="conteud">
+        <h1>Conheça mais sobre o poraquê</h1>
+        <h2>Poraquê - Electrophorus electricus</h2>
+        <p class="p2">O Poraquê, conhecido cientificamente como Electrophorus electricus, é uma espécie de peixe elétrico nativa das águas da bacia amazônica. Este ser extraordinário destaca-se por suas notáveis características, sendo uma verdadeira maravilha da natureza. Vamos adentrar no intrigante mundo do Poraquê e entender por que ele merece nossa atenção.</p>
+        <p>
+        <a href="mds.jpg" target="_blank"><div class="container">
+            <div class="inner">
+                <img src="mds.jpg" alt="tst" class="image"></div>
+        </div></a></p>
+        <p class="prq">Poraquê Nadando. Fonte: (https://conexaoplaneta.com.br/)</p>
+        <h2>Importância do Poraquê na Ecologia Aquática:</h2>
+        <p class="p2">Uma das características mais distintivas do Poraquê é seu órgão elétrico altamente desenvolvido. Este órgão não apenas permite que o Poraquê detecte presas e predadores, mas também desempenha um papel crucial na comunicação intraespecífica. A capacidade de gerar impulsos elétricos confere ao Poraquê uma vantagem adaptativa única, destacando-o como um exemplo notável de especialização evolutiva.</h2>
+        <p class="p2">Além de sua capacidade elétrica, o Poraquê exibe comportamentos fascinantes. Seu estilo de vida noturno, combinado com estratégias de caça eficientes, torna-o um predador formidável na densa paisagem aquática da Amazônia. Estudar seus padrões comportamentais não apenas oferece insights sobre sua biologia, mas também enriquece nossa compreensão do funcionamento dos ecossistemas fluviais.</p>
+        <h1>Características e Comportamento</h1>
+        <h2>Características Notáveis:</h2>
+        <p class="p2"><b>Coloração:</b> O Poraquê exibe uma coloração acinzentada a marrom, camuflando-se habilmente em seu ambiente.
+            <p class="p2"><b>Forma do Corpo:</b> Seu corpo é alongado, adaptado para a natação eficiente e para percorrer os ambientes intricados da floresta alagada.</p>
+            <h2>Orgão eletrico em detalhe:</h2>
+            <p class="p2"><b>Localização e Estrutura:</b> O órgão elétrico do Poraquê estende-se ao longo de seu corpo, principalmente na região da cabeça e da parte anterior.</p>
+                <p class="p2"><b>Funcionamento:</b> Capacidade de gerar descargas elétricas, utilizado tanto para comunicação quanto para a detecção de presas e predadores.</p>
+                <h2>Comportamento de caça e comunicação intrigante:</h2>
+                <p class="p2">
+                        <b>Caça Noturna:</b> O Poraquê é ativo durante a noite, utilizando a escuridão para surpreender suas presas.
+                        <p class="p2">
+                            <b>Estratégias de Caça:</b> Adota métodos como emboscadas e aproximação silenciosa para capturar presas de forma eficiente.
+                            Comunicação Intrigante:
+                        </p>
+                    </p>
+                    
+                    <p class="p2"><b>Sinais Elétricos:</b> Além da caça, o Poraquê utiliza impulsos elétricos para se comunicar com outros membros de sua espécie.</p>
+                    <p class="p2"><b>Função Social:</b> Estes sinais desempenham um papel vital na comunicação intraespecífica, desde a busca de parceiros até a demarcação de território.</p></p>
+                    <h2>Impacto Ambiental do Poraquê:</h2>
+                    <p class="p2">O Poraquê desempenha um papel significativo no equilíbrio ambiental da Amazônia. Sua presença influencia a densidade populacional de outras espécies e contribui para a biodiversidade regional. Além disso, sua capacidade de gerar descargas elétricas pode ter efeitos positivos na regulação de pequenos organismos aquáticos, influenciando indiretamente a cadeia alimentar.</p>
+                    <h2>Caça e conservação do Poraquê</h2>
+                    <p class="p2">Embora o Poraquê não seja frequentemente alvo direto de caça, a degradação do seu habitat e a poluição dos rios ameaçam sua sobrevivência. Esforços de conservação são cruciais para proteger não apenas o Poraquê, mas todo o ecossistema amazônico. Medidas como a preservação de áreas naturais e regulamentações ambientais são essenciais para garantir a continuidade dessa espécie única.</p>
+                    <h2>Importancia educacional do Poraquê:</h2>
+                    <p class="p2">O estudo e divulgação sobre o Poraquê têm um valor educacional imensurável. Ao entender a biologia e o comportamento deste peixe elétrico, os estudantes e professores podem ampliar seus conhecimentos sobre ecologia aquática, evolução e conservação. A conscientização pública sobre a importância do Poraquê na biodiversidade amazônica é fundamental para promover práticas sustentáveis e preservar esse ambiente vital.</p>
+                    <h2>Conclusão:</h2>
+                    <p class="p2">Em conclusão, o Poraquê emerge como uma espécie vital na complexa teia da Amazônia. Seu papel no ecossistema, comportamento único e desafios de conservação destacam a necessidade de ações imediatas. Ao aprender mais sobre o Poraquê e compartilhar esse conhecimento, contribuímos para a preservação não apenas de uma espécie, mas de todo um ecossistema que é crucial para o equilíbrio ambiental global. A proteção do Poraquê é, portanto, um passo essencial para salvaguardar a riqueza natural da Amazônia para as gerações futuras.</p>
+        <tst>
+            <p class="tst"><jl><a href="https://www.instagram.com/etecdecaraguatatuba/" target="_blank" class="link-sem">Etec Caraguatatuba</a></jl></p>
+        </tst></div>
+        <div id="img2">
+            
+            <foto2><p><a href="https://www.vestibulinhoetec.com.br/unidades-cursos/escola.asp?c=230" target="_blank"><div class="img6"><img src="etec3.png" alt=""></div></a></p></div></foto2>
+            <p class="vestibulinho">Clique na foto para informações do vestibulinho.</p>
+        </div>
+        </a>
+        <p></p>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/WojZo5bMDoM?si=GIkBIiL70lcF_KiC" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        <button id="darkModeButton" onclick="toggleDarkMode()">Dark Mode</button>
+        <form action=""></form>
+
+    </main>
+
+    <script>
+        const body = document.body;
+
+        function toggleDarkMode() {
+            body.classList.toggle("dark-mode");
+        }
+        function toggleMenu() {
+    var menu = document.getElementById('menu');
+    menu.classList.toggle('open');
+    
+    // Mostra ou esconde o #menu2 ao clicar no hamburguer
+    var menu2 = document.getElementById('menu2');
+    menu2.style.display = menu.classList.contains('open') ? 'block' : 'none';
+    var menu3 = document.getElementById('menu3');
+    menu3.style.display = menu.classList.contains('open') ? 'block' : 'none';
+    
+    document.getElementById('options-menu').classList.toggle('show-menu');
+    document.getElementById('options-menu-top').classList.toggle('show-menu');
+  }
+    </script>
+</body>
+
+</html>
