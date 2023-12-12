@@ -358,6 +358,12 @@
             {
                 color: rgb(236, 247, 246);
             }
+            audio {
+               max-width: 100%;
+            }
+            .containeraudio {
+                text-align: center;
+            }
     </style>
 </head>
 <header>
@@ -427,6 +433,12 @@
             <p class="vestibulinho">Clique na foto para informações do vestibulinho.</p>
         </div>
         </a>
+        <p>
+
+            <div class="containeraudio">
+                <audio id="meuAudio" src="ElevenLabs_2023-12-12T21_15_38_Daniel_pre_s50_sb75_m1.mp3" controls preload="metadata"></audio>
+            </div>
+        </p>
         <p></p>
         <iframe width="560" height="315" src="https://www.youtube.com/embed/WojZo5bMDoM?si=GIkBIiL70lcF_KiC" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
         <button id="darkModeButton" onclick="toggleDarkMode()">Dark Mode</button>
@@ -452,7 +464,13 @@
     
     document.getElementById('options-menu').classList.toggle('show-menu');
     document.getElementById('options-menu-top').classList.toggle('show-menu');
+    
   }
+  window.onload = function() {
+    var audio = document.getElementById("meuAudio");
+    audio.volume = 0.5; // Define o volume para 50%
+};
+  
     </script>
 </body>
 
